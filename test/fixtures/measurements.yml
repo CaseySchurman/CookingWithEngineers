@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+cup:
+  name: Cup
+  abbr: Cup
+  
+tbs:
+  name: Tablespoon
+  abbr: Tbs
+  
+tsp:
+  name: Teaspoon
+  abbr: tsp

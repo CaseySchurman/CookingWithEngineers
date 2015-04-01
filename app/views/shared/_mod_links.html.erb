@@ -1,0 +1,9 @@
+<!-- Adds edit link if object is owned by current user -->
+<%= link_to 'edit', 
+    edit_polymorphic_path(object), remote: true if current_user?(object.user) %>
+    
+<!-- Adds delete link if object is owned by current user or admin user -->
+<% if admin || current_user?(object.user) %>            
+  <%= link_to 'delete', object, method: :delete, remote: true,
+                        data: { confirm: "Are you sure?"} %>
+<% end %>

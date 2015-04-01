@@ -1,0 +1,12 @@
+ <% provide(:title, @page_title ) %>
+ <!-- Display error messages to user  -->
+<div class = "content">
+<div class="errors">
+  <%= render 'shared/errors', object: @obj %>
+</div>
+
+<!-- User Application Helper to generate correct form -->
+<div class="form">
+  <%= render get_form %>
+</div>
+</div>

@@ -1,0 +1,13 @@
+<% provide(:title, @page_title) %>
+<!--############################################################################
+#  An automatic foreach loop is used to process the @checklists instance
+#  variable.  The checklist items are displayed by calling the show function
+#  for each checklist item.
+#############################################################################-->
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Order</th>
+  </tr>
+  <%= render @checklists %>
+</table>

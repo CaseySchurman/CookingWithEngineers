@@ -1,0 +1,14 @@
+<!-- Used for both edits and new entries -->
+<%= form_for @rating, remote: true do |f| %>
+<p>
+  <!-- Adds vote to page hash -->
+  <div class = "group">
+    <!-- Adds email to page hash -->
+    <%= f.number_field :vote, placeholder: "Rate recipe" %>
+    <%= content_tag :span, nil, :class => 'error' %>
+  </div>
+</p>
+<p>
+  <%= f.submit @btnText, class: "button dark3 center" %>
+</p>
+<% end %>

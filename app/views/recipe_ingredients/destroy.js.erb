@@ -1,0 +1,3 @@
+$('#recipe_ingredients_table').empty();
+$('#recipe_ingredients_table').html('<%= j render 'recipes/tableheader' %>');
+$("#recipe_ingredients_table").append('<%= j render @recipe.recipe_ingredients %>');

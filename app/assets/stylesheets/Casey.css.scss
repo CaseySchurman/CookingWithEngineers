@@ -1,0 +1,218 @@
+//CSS written by Casey Schurman
+//Desktop version
+
+//Color variables
+$White: 		#FFFFFF;
+$CharBlack: 	#2f2f2f;
+$GrayWhite:     #f5f5f5;
+$DarkGray:      #464646;
+$Gray:          #808080;
+$DarkCharBlack: #262626;
+$LiteOrangeTan: #d29f55;
+
+@media all and (min-width: 1024px) {
+	
+html {
+    position: relative;
+    height:100%;
+}
+
+body {
+    height: 100%;
+    min-height: 100%;
+    background-size: 100%;
+    background-image: url("WebsiteBackPng.png");
+    background-image: no-repeat;
+    background-attachment: fixed;
+    margin: auto;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.header {
+    text-align: left;
+    opacity: .88;
+    letter-spacing: -2px;
+    padding-left: 5px;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    background-color: rgba(10,10,10,.75);
+    color: $White;
+    font-size: 200%;
+    height: 75px;
+}
+
+
+//New Footer That Sticks
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    width: 100%;
+    background-color: rgba(10,10,10,.75);
+    color: $White;
+    opacity: .98;
+    text-align: center;
+    letter-spacing: 1px;
+    padding-top: .5cm;
+    clear:both;
+}
+
+
+.footerLeft {
+    font-size:.8em;
+    color: $CharBlack;
+}
+
+.footerRight {
+    font-size:1em;
+    color: $White;
+    padding-left:80%;
+}
+
+.formClass {
+    font-size: 1.1em;
+    font-weight: bold;
+    padding-top: 20%;
+    padding-bottom: 20%;
+}
+
+//Header Link Styling
+.headerLinks {
+    float: right;
+	display: inline;
+	margin: 15px 25px;
+	outline: none;
+	color: $White;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 400;
+	text-shadow: 0 0 1px rgba(255,255,255,0.3);
+	font-size: 50%;
+	padding-top: 35px;
+
+	&:before,
+	&:after {
+		display: inline-block;
+		opacity: 0;
+		transition: transform 0.3s, opacity 0.2s;
+	}
+	
+	&:before {
+		margin-right: 10px;
+		content: '[';
+		transform: translateX(20px);
+	}
+	
+	&:after {
+		margin-left: 10px;
+		content: ']';
+		transform: translateX(-20px);
+	}
+	
+	&:hover:before,
+	&:hover:after,
+	&:focus:before,
+	&:focus:after {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+//Settings Link Styling
+//.settingsLink {
+//    
+//}
+
+
+//Footers Link Styling
+.footerLinks{
+    padding: 10px;
+	color: $LiteOrangeTan;
+	font-weight: 700;
+	text-shadow: none;
+	transition: color 0.5s;
+	text-align: center;
+
+	&:before, 
+	&:after{
+	    position: absolute;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: $White;
+		content: '';
+		opacity: 0;
+		transition: opacity 0.3s, transform 0.3s;
+		transform: translateY(-10px);
+	}
+
+	&:before{
+	  	top: 0;
+		transform: translateY(-10px);
+	}
+
+	&:after{
+	    bottom: 0;
+		transform: translateY(10px);
+	}
+
+	&:hover,
+	&:focus{
+	    color: $White;
+	}
+
+	&:hover:before,
+	&:hover:after,
+	&:focus:before,
+	&:focus:after {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+.roundButton {     
+    display:block;
+    width:50px;
+    height:50px;
+    line-height:50px;
+    border: 2px solid $GrayWhite;
+    border-radius: 50%;
+    color:$GrayWhite;
+    text-align:center;
+    text-decoration:none;
+    background: $DarkGray;
+    box-shadow: 0 0 3px $Gray;
+    font-size:20px;
+    font-weight:bold;
+
+	&:hover {
+    background: $DarkCharBlack;
+	}
+}
+
+.headerTitleLink {
+    color: $White;
+}
+
+.headerTitleLink span {
+    height: 1em;
+	position: relative;
+	display: inline-block;
+	transition: transform 0.3s;
+}
+
+.headerTitleLink span:before {
+	position: absolute;
+	top: 100%;
+	content: attr(data-hover);
+	font-weight: 700;
+	transform: translate3d(0,0,0);
+}
+
+.headerTitleLink:hover span,
+.headerTitleLink:focus span{
+	transform: translateY(-100%);
+}
+}

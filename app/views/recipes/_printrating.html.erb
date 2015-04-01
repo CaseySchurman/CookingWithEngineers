@@ -1,0 +1,17 @@
+  <% if logged_in? %>
+    <!-- If user has not rated recipe display add rating button -->
+    <% if @rating.nil? %>
+    <div id="AddRatingButton">
+        <%= link_to 'Add Rating', new_rating_path, remote: true,
+          class: "button dark3 center" %>
+    </div>
+    <!-- Otherwise show current rating and edit rating button -->
+    <% else %>
+      <%= "Current rating is: #{@rating.vote}" %>
+      <div id="EditRatingButton">
+      <%= link_to 'Edit Rating', edit_rating_path(@rating), remote: true,
+          class: "button dark3 center" %>
+      </div>
+    <% end %>
+  <% end %>
+  <div id="add_rating_form"></div>

@@ -1,0 +1,9 @@
+<!-- Form used for both new and editing ingredients -->
+<%= form_for @ingredient do |f| %>
+  <p>
+    <%= f.text_field :name, placeholder: "Name" %>
+  </p>
+  <p>
+    <%= f.submit @btnText, class: "button red3 center" %>
+  </p>
+<% end %>

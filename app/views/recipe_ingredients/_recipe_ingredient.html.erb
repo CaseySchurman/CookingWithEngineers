@@ -1,0 +1,11 @@
+<!-- Displays a single recipe ingredient -->
+<tr>
+  <!-- Uses RecipeIngredientsHelper to display quantity as a fraction -->
+  <td class="ing"><%= fractionalize(recipe_ingredient) %></td>
+  <td><%= recipe_ingredient.measurement.abbr %></td>
+  <td><%= recipe_ingredient.ingredient.name %></td>
+  <td><%= recipe_ingredient.text %></td>
+  
+  <!-- Show modificaiton links -->
+  <td><%= render 'shared/rmod_links', object: recipe_ingredient %></td>
+</tr>

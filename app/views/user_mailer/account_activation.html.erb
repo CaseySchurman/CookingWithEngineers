@@ -1,0 +1,10 @@
+<!-- Generates an html account activation link-->
+<h1>Cooking with Engineers</h1>
+<!-- Dispalys user name -->
+<p>Hi <%= @user.fname %></p>
+<p>
+Welcome to the cooking with engineers app!  Click the link below to activate your account:
+</p>
+<!-- Creates link using @user instance activation token and email -->
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token, 
+                                                    email: @user.email) %>

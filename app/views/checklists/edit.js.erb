@@ -1,0 +1,42 @@
+$("#add_checklist_form").html('<%= j render 'checklists/form' %>');
+
+$(document).ready(function()
+{
+   $('#checklist_description').keyup(validateDescription);
+   $('#checklist_order').keyup(validateOrder);
+  
+  function validateDescription()
+  {
+    var obj = $(this);
+    
+    if (obj.val().length < 10 || obj.val().length > 250)
+      showError(obj, "Step descriptions must be between 10 and 250 characters");
+    else
+      removeError(obj);
+  }
+  
+  function validateOrder()
+  {
+      var obj = $(this);
+      
+      if (obj.val() > 0)
+          removeError(obj);
+      else
+          showError(obj, "The order must be a number greater than 0");
+  }
+  
+  function showError(obj, msg)
+  {
+    $('span', obj.parent()).text(msg).removeClass('error').
+                            addClass('error_show');
+    obj.addClass('errorfield');
+  }
+    
+  function removeError(obj)
+  {
+    $('span', obj.parent()).text("").removeClass('error_show').
+                            addClass('error');
+    obj.removeClass('errorfield');
+  }
+});
+$("#AddStepButton").hide();

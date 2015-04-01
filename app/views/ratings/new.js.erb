@@ -1,0 +1,30 @@
+$('#add_rating_form').html('<%= j render 'ratings/form' %>');
+$(document).ready(function()
+{
+   $('#rating_vote').keyup(validateRating);
+  
+  function validateRating()
+  {
+    var obj = $(this);
+    
+    if (obj.val() > 5 || obj.val() < 0)
+      showError(obj, "Rating must be between 0 and 5");
+    else
+      removeError(obj);
+  }
+  
+  function showError(obj, msg)
+  {
+    $('span', obj.parent()).text(msg).removeClass('error').
+                            addClass('error_show');
+    obj.addClass('errorfield');
+  }
+    
+  function removeError(obj)
+  {
+    $('span', obj.parent()).text("").removeClass('error_show').
+                            addClass('error');
+    obj.removeClass('errorfield');
+  }
+});
+$('#AddRatingButton').hide();

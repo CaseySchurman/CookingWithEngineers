@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<% provide(@page_title) %>
+<!-- Root of application content -->
+<% if logged_in? %>
+  <div class="content">
+      <br>
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'main_pages/user_info' %>
+      </section>
+      <section class="follow">
+        <%= render 'shared/stats' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
+  <div class="content">
+    <h1>Welcome to Cooking with Engineers</h1>
+    <h2 class = "darkText">
+      A user centered recipe sharing application 
+      developed by students at Oregon Tech for 
+      their Junior Project 2014-15 using Ruby on Rails
+      version 4.2
+    </h2>
+    <%= link_to "Register Now", new_user_path, :class => "button green2 center" %>
+  </div>
+<% end %>
+</html>

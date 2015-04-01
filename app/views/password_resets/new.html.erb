@@ -1,0 +1,27 @@
+<% provide(:title, @page_title) %>
+
+<div class="content">
+<h1>Forgot Password</h1>
+<br>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+      <!-- Form uses email to find user in db in order to send a 
+           password reset link -->
+    <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+      <div class = "group">
+      <%=f.text_field :email, class: 'input', required: true %>
+      <%= content_tag :span, nil, :class => 'highlight' %>
+      <%= content_tag :span, nil, :class => 'bar' %>
+      <%= f.label :email %>
+    </div>
+      <!-- Adds email to page hash -->
+      <!--<p>
+        %= f.text_field :email, placeholder: "Email", class: 'form_control' %>
+      </p>-->
+      
+      <!-- Sends email link -->
+      <p><%= f.submit 'Reset password', class: 'button red3 center' %></p>
+    <% end %>
+  </div>
+</div>
+</div>

@@ -1,0 +1,24 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+ccc:
+  name: 'Chocolate Chip Cookies'
+  user: chad
+  
+chx:
+  name: 'Chicken Diane'
+  user: chad
+  
+nod:
+  name: 'Stir Fried Noodles'
+  user: tom
+  
+<% 30.times do |n| %>
+recipe_<%= n %>:
+  name: <%= Faker::Lorem.sentence(2) %>
+  user: chad
+<% end %>
+
+<% 30.times do |n| %>
+recipet_<%= n %>:
+  name: <%= Faker::Lorem.sentence(2) %>
+  user: tom
+<% end %>

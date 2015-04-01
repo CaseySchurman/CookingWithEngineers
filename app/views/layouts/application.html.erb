@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- Main template for all pages -->
+<html>
+  <head>
+    <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="app/assets/javascripts/elevation.js"></script>
+  </head>
+    <!-- Head of document _head.html.erb -->
+  <%= render 'layouts/head' %>
+  <body>
+      <!-- Page header _header.html.erb -->
+    <%= render 'layouts/header' %>
+    <%= form_tag recipes_path, :method => "get", id: "search-form" do |f| %>
+      <div class="input-append">
+      <%= text_field_tag :search, params[:search], placeholder: "Recipe Name" %>
+      <%= text_field_tag :searchauthor, params[:searchauthor], placeholder: "Recipe Creator"%>
+      <%= text_field_tag :searchingredients, params[:searchingredients], placeholder: "Comma delimited ingredient list"%>
+      <span>Perform an inclusive ingredient search?</span>
+      <%= check_box_tag :exclusive %>
+      <span>Descending order?</span>
+      <%= check_box_tag :order %>
+      <span>Sort by rating?</span>
+      <%= check_box_tag :rating %>
+      <%= button_tag "Search", action: "index", class: "button blue3 center" %>
+      </div>
+      
+    <% end %>
+    <div class="container">
+      <!-- Flash messages to user  -->
+      <%= render 'shared/flash' %>
+      <!-- Display content for request <page_request>.html.erb -->
+      <%= yield %>
+    </div>
+      <!-- Page footer _foother.html.erb -->
+    <%= render 'layouts/footer' %>
+  </body>
+  <%= debug(params) if Rails.env.development? %>
+</html>

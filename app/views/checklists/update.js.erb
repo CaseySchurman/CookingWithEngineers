@@ -1,0 +1,5 @@
+$('#checklists_table').empty();
+$("#add_checklist_form").empty();
+$('#checklists_table').html('<%= j render 'recipes/checklistheader' %>');
+$("#checklists_table").append('<%= j render @recipe.checklists %>');
+$("#AddStepButton").show();

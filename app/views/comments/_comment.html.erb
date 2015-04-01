@@ -1,0 +1,11 @@
+<!-- Shows information for a single comment-->
+
+<div class="comment">
+    <!-- Link on username to users profile -->
+    <strong><%= link_to comment.user.username, comment.user %> says:</strong> |  
+    <!-- The comment -->
+    <%= comment.text %>
+    
+    <!-- Show modificaiton links -->
+    <%= render 'shared/mod_links', object: comment %>
+</div>

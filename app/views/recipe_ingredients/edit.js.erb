@@ -1,0 +1,30 @@
+$("#add_ingredient_form").html('<%= j render 'recipe_ingredients/form' %>');
+$(document).ready(function()
+{
+  $('#recipe_ingredient_quantity').keyup(validateQuantity);
+   
+  function validateQuantity()
+  {
+    var obj = $(this);
+    
+    if (obj.val() > 0)
+      removeError(obj);
+    else
+      showError(obj, "The quantity must be a number greater than 0");
+  }
+  
+  function showError(obj, msg)
+  {
+    $('span', obj.parent()).text(msg).removeClass('error').
+                            addClass('error_show');
+    obj.addClass('errorfield');
+  }
+    
+  function removeError(obj)
+  {
+    $('span', obj.parent()).text("").removeClass('error_show').
+                            addClass('error');
+    obj.removeClass('errorfield');
+  }
+});
+$("#AddIngredientButton").hide();

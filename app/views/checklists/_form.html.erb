@@ -1,0 +1,37 @@
+<!-- Form used for both new and editing checklist items -->
+<div class="form">
+<%= form_for @checklist, remote: true do |f| %>
+  <p>
+    <div class = "group">
+      <!-- Adds description to page hash -->
+      <%= f.text_area :description, placeholder: "Item" %>
+      </br>
+      <%= content_tag :span, nil, :class => 'error' %>
+    </div>
+  </p>
+  <p>
+    <div class = "group">
+      <!-- Adds order to page hash -->
+      <%= f.number_field :order, placeholder: "Order" %>
+      <%= content_tag :span, nil, :class => 'error' %>
+    </div>
+  </p>
+  <% if @images.any? %>
+    <p>
+      <h2>Current Images</h2>
+      <% @images.each do |i| %>
+        <%= image_tag i.picture.url %>
+      <% end %>
+    </p>
+  <% end %>
+  <% if controller.action_name != 'new' %>
+  <p>
+    <%= link_to 'Add Image', new_checklist_picture_path(@checklist) %>
+  </p>
+  <% end %>
+  <!-- Creates/Edits checklist item -->
+  <p>
+    <%= f.submit @btnText, class: "button green center" %>
+  </p>
+<% end %>
+</div>

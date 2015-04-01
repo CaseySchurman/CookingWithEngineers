@@ -1,0 +1,12 @@
+<% provide(:title, @page_title) %>
+<!-- Displays All recipes -->
+<div class = "content">
+<h2>All Recipes</h2>
+<%= link_to 'Add Recipe', new_recipe_path, class: "button red center" if logged_in? %>
+<%= render @recipes %>
+<p>
+  <!-- Provide link to add a recipe if user is logged in -->
+  <%= link_to 'Add Recipe', new_recipe_path, class: "button red center" if logged_in? %>
+</p>
+</div>
+

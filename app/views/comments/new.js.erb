@@ -1,0 +1,30 @@
+$('#recipe_comment_form').html('<%= j render 'comments/form' %>');
+$(document).ready(function()
+{
+   $('#comment_text').keyup(validateComment);
+  
+  function validateComment()
+  {
+    var obj = $(this);
+    
+    if (obj.val().length < 10 || obj.val().length > 250)
+      showError(obj, "Comments must be between 10 and 250 characters");
+    else
+      removeError(obj);
+  }
+  
+  function showError(obj, msg)
+  {
+    $('span', obj.parent()).text(msg).removeClass('error').
+                            addClass('error_show');
+    obj.addClass('errorfield');
+  }
+    
+  function removeError(obj)
+  {
+    $('span', obj.parent()).text("").removeClass('error_show').
+                            addClass('error');
+    obj.removeClass('errorfield');
+  }
+});
+$('#AddCommentButton').hide();

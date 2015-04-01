@@ -1,0 +1,3 @@
+$('#checklists_table').empty();
+$('#checklists_table').html('<%= j render 'recipes/checklistheader' %>');
+$("#checklists_table").append('<%= j render @recipe.checklists %>');

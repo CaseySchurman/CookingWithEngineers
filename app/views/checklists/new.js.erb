@@ -1,0 +1,65 @@
+$("#add_checklist_form").html('<%= j render 'checklists/form' %>');
+
+//Verifies that the document is is ready after the partial has rendered.
+$(document).ready(function()
+{
+  //Attaches listeners to the order and description HTML elements.
+  $('#checklist_description').keyup(validateDescription);
+  $('#checklist_order').keyup(validateOrder);
+  
+  //Called upon keyup in the description field.
+  function validateDescription()
+  {
+    //Places the html element object into var obj.
+    var obj = $(this);
+    
+    //Checks obj's value, the text in the field, with the length attribute to
+    //determine whether or not the comment is appropriately between 10 and 250
+    //characters.
+    if (obj.val().length < 10 || obj.val().length > 250)
+      showError(obj, "Step descriptions must be between 10 and 250 characters");
+    else
+      removeError(obj);
+  }
+  
+  //Called upon keyup in the order field.
+  function validateOrder()
+  {
+      //Places the html element object into var obj.
+      var obj = $(this);
+      
+      //Checks that the value of the order is greater than 0.
+      if (obj.val() > 0)
+          removeError(obj);
+      else
+          showError(obj, "The order must be a number greater than 0");
+  }
+  
+  //When called applies show_error CSS classes to the field's associated
+  //span tag, as well as assigning the errorfield class to the object itself
+  //for further manipulation in CSS.
+  function showError(obj, msg)
+  {
+    //Removes the standard error class and adds an error_show so the message
+    //that was passed into showError will be displayed.
+    $('span', obj.parent()).text(msg).removeClass('error').
+                            addClass('error_show');
+                            
+    //Adds the errorfield class for further CSS manipulation of the field
+    //itself.
+    obj.addClass('errorfield');
+  }
+    
+  //Removes the error_show class from the error span and the errorfield class
+  //from the html field, as well as removing the span's text field to reset it.
+  function removeError(obj)
+  {
+    //Remove the error_show tag and clear the text field of the object's span.
+    $('span', obj.parent()).text("").removeClass('error_show').
+                            addClass('error');
+    
+    //Removes the errorfield class from the html object.
+    obj.removeClass('errorfield');
+  }
+});
+$("#AddStepButton").hide();

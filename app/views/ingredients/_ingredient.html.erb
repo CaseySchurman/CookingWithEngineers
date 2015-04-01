@@ -1,0 +1,7 @@
+<!-- Displays a single ingredient -->
+<div class="ingredeint">
+  <%= ingredient.name %>
+  <%= link_to 'edit', edit_ingredient_path(ingredient) %>
+  <%= link_to 'delete', ingredient_path(ingredient), method: :delete, 
+                        data: { confirm: 'Are you sure?' } %>
+</div>

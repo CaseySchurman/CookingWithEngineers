@@ -1,0 +1,18 @@
+<!-- Form used for both new and editing comments -->
+<div class="form">
+<%= form_for @comment, remote: true do |f| %>
+  <p>
+    <div class = "group">
+      <!-- Adds email to page hash -->
+      <%= f.text_area :text, placeholder: "Comment" %>
+      </br>
+      <%= content_tag :span, nil, :class => 'error' %>
+    </div>
+  </p>
+
+  <!-- Creates/Updates comment -->
+  <p>
+    <%= f.submit @btnText, class: "button blue3 center" %>
+  </p>
+<% end %>
+</div>

@@ -1,0 +1,45 @@
+<!-- Form for editing and new users -->
+  <h2>Update Settings</h2>
+  <br>
+  <%= form_for @user do |f| %>
+  <div class = "group">
+      <!-- Adds username to page hash -->
+      <!-- issue here. The span class with the highlight and bar are inheriting
+      the error class and hiding the messages in each one until the js calls it
+      so this is causing errors -->
+      <%= f.text_field :username, class: 'input', required: true %>
+      <%= f.label :username %>
+      <%= content_tag :span, nil, :class => 'error' %>
+    </div>
+    <div class = "group">
+      <!-- Adds email to page hash -->
+      <%= f.text_field :email, class: 'input', required: true %>
+      <%= f.label :email %>
+      <%= content_tag :span, nil, :class => 'error' %>
+    </div>
+    <div class = "group">
+      <%= f.text_field :fname, class: 'input', required: true %>
+      <%= f.label "first name" %>
+      <%= content_tag :span, nil, :class => 'error' %>
+    </div> 
+    <div class = "group">
+      <%= f.text_field :lname, class: 'input', required: true %>
+      <%= f.label "last name" %>
+      <%= content_tag :span, nil, :class => 'error' %>
+    </div> 
+    <div class = "group">
+      <!-- Adds email to page hash -->
+      <%= f.password_field :password, class: 'input', required: true %>
+      <%= f.label :password %>
+      <%= content_tag :span, nil, :class => 'error' %>
+    </div> 
+    <div class = "group">
+      <!-- Adds pw_confirmation_hash to page hash -->
+      <%= f.password_field :password_confirmation, class: 'input',
+                                  required: true%>
+      <%= f.label "Re-Enter Password" %>
+      <%= content_tag :span, nil, :class => 'error' %>
+    </div>
+      <!-- Creates/Updates user object -->
+      <%= f.submit @btnText,  class:"button green center" %>
+  <% end %>

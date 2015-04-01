@@ -1,0 +1,19 @@
+<% @images = checklist.checklist_pictures.all %>
+<!-- Shows information for a single checklist item-->
+<tr>
+  <!-- Checklist description -->
+  <td><%= checklist.description %></td>
+  <!-- The comment -->
+  <td><%= checklist.order %></td>
+  <!-- Show modificaiton links -->
+  <td>
+    <%= render 'shared/rmod_links', object: checklist %>
+  </td>
+  <td>
+    <% if @images.any? %>
+      <% @images.each do |i| %>
+        <%= image_tag i.picture.url %>
+      <% end %>
+    <% end %>
+  </td>
+</tr>

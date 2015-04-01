@@ -1,0 +1,12 @@
+<!--############################################################################
+# Displays a single recipe link with average user rating.
+#############################################################################-->
+<p>
+  <%= image_tag recipe.picture.url if recipe.picture? %>
+  <br>
+  <%= recipe.user.username %>
+  <%= link_to recipe.name, recipe, class: "recipe_entry" %>
+  <%= "Average user rating: #{recipe.rating}" if !recipe.rating.nil? %>
+</p>
+<!-- Show modificaiton links -->
+<%= render 'shared/mod_links', object: recipe %>

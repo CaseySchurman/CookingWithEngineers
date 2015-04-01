@@ -1,0 +1,19 @@
+<!--###########################################################################
+# Flash messages are generated at the controller level.  Flash messages may
+# return with a tag indicating their purpose that can be controlled with CSS
+# indicating un/successful page results.  The values from each key are 
+# displayed within an errors div
+#
+# Entry: flash keys present
+#
+#  Exit: flash values displayed
+############################################################################-->
+<div class="content">
+<div class="errors">
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, class: "alert alert-#{key} alert-dismissable") do %>
+        <%= value %>
+    <% end %> 
+  <% end %>
+</div>
+</div>

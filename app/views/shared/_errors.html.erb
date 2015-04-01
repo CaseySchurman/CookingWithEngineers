@@ -1,0 +1,15 @@
+<!--############################################################################
+# Displays errors if any for objects.  Objects are passed to form from calling
+# page.  Error are added to unordered list.
+#############################################################################-->
+<% if object.errors.any? %>
+  <div class="error">
+    <!-- Loop through error messages -->
+    <% object.errors.full_messages.each do |m| %>
+    <ul>
+      <!-- Show error message -->
+      <li><%= m %></li>
+    </ul>
+    <% end %>
+  </div>
+<% end %>

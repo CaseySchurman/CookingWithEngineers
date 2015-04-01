@@ -1,0 +1,29 @@
+<% provide(:title, @page_title) %>
+
+  <div class="content">
+<div class= "register">
+  <h1>Log in</h1>
+  <br>
+  <!-- For for the loggen attempt -->
+  <%= form_for(:session, url: login_path, class: 'formClass') do |f| %>
+    <!-- just putting html in here I wonder if it works -->
+    <div class = "group">
+      <!--<input class="input" id="session_username" name="session[username]" type="text" required class="input">    alternative way to erb-->
+      <%=f.text_field :username, class: 'input', required: true %>
+      <%= content_tag :span, nil, :class => 'highlight' %>
+      <%= content_tag :span, nil, :class => 'bar' %>
+      <%= f.label :username %>
+    </div>
+    <div class = "group">
+      <%= f.password_field :password, class: 'input', required: true %>
+      <%= content_tag :span, nil, :class => 'highlight' %>
+      <%= content_tag :span, nil, :class => 'bar' %>
+      <%= f.label :password %>
+    <!-- Adds link to reset password -->
+    </div>
+    <%= link_to "forgot password", new_password_reset_path, class: 'forgotPw' %>
+    <!-- Creates new session -->  
+    <%= f.submit 'Submit', :class => 'button red4 center' %>
+  </div>
+  <% end %>
+</div>

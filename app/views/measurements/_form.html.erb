@@ -1,0 +1,12 @@
+<!-- Form used for both new and editing measurements -->
+<%= form_for @measurement do |f| %>
+  <p>
+    <%= f.text_field :name, placeholder: 'Name' %>
+  </p>
+  <p>
+    <%= f.text_field :abbr, placeholder: 'Abbreviation' %>
+  </p>
+  <p>
+    <%= f.submit @btnText, class: "button red3 center" %>
+  </p>
+<% end %>

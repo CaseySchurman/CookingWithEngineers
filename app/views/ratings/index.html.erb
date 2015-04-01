@@ -1,0 +1,25 @@
+<!-- Shows all ratings for all users in a table -->
+<table>
+<tr>
+  <!-- Table Header -->
+  <th>User</th>
+  <th>Recipe</th>
+  <th>Vote</th>
+</tr>
+  <!-- Loop through each rating to display -->
+  <% @ratings.each do |r| %>
+    <tr>
+      <td><%= r.user.username %></td>
+      <td><%= r.recipe.name %></td>
+      <td><%= r.vote %></td>
+      <!-- Show edit/delete links to owners and delete to admins -->
+      <td>
+        <%= link_to 'edit', edit_rating_path(r.id), remote: true if current_user?(r.user) %>
+        <% if admin || current_user?(r.user) %>
+          <%= link_to 'delete', @rating, method: :delete, 
+                                data: { confirm: "Are you sure?" } %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

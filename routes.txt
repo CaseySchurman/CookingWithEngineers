@@ -1,0 +1,85 @@
+                 Prefix Verb   URI Pattern                             Controller#Action
+                   root GET    /                                       main_pages#home
+                  about GET    /about(.:format)                        main_pages#about
+                   help GET    /help(.:format)                         main_pages#help
+                  login GET    /login(.:format)                        sessions#new
+                        POST   /login(.:format)                        sessions#create
+                 logout DELETE /logout(.:format)                       sessions#destroy
+         following_user GET    /users/:id/following(.:format)          users#following
+         followers_user GET    /users/:id/followers(.:format)          users#followers
+                  users GET    /users(.:format)                        users#index
+                        POST   /users(.:format)                        users#create
+               new_user GET    /users/new(.:format)                    users#new
+              edit_user GET    /users/:id/edit(.:format)               users#edit
+                   user GET    /users/:id(.:format)                    users#show
+                        PATCH  /users/:id(.:format)                    users#update
+                        PUT    /users/:id(.:format)                    users#update
+                        DELETE /users/:id(.:format)                    users#destroy
+                recipes GET    /recipes(.:format)                      recipes#index
+                        POST   /recipes(.:format)                      recipes#create
+             new_recipe GET    /recipes/new(.:format)                  recipes#new
+            edit_recipe GET    /recipes/:id/edit(.:format)             recipes#edit
+                 recipe GET    /recipes/:id(.:format)                  recipes#show
+                        PATCH  /recipes/:id(.:format)                  recipes#update
+                        PUT    /recipes/:id(.:format)                  recipes#update
+                        DELETE /recipes/:id(.:format)                  recipes#destroy
+            ingredients GET    /ingredients(.:format)                  ingredients#index
+                        POST   /ingredients(.:format)                  ingredients#create
+         new_ingredient GET    /ingredients/new(.:format)              ingredients#new
+        edit_ingredient GET    /ingredients/:id/edit(.:format)         ingredients#edit
+             ingredient GET    /ingredients/:id(.:format)              ingredients#show
+                        PATCH  /ingredients/:id(.:format)              ingredients#update
+                        PUT    /ingredients/:id(.:format)              ingredients#update
+                        DELETE /ingredients/:id(.:format)              ingredients#destroy
+           measurements GET    /measurements(.:format)                 measurements#index
+                        POST   /measurements(.:format)                 measurements#create
+        new_measurement GET    /measurements/new(.:format)             measurements#new
+       edit_measurement GET    /measurements/:id/edit(.:format)        measurements#edit
+            measurement GET    /measurements/:id(.:format)             measurements#show
+                        PATCH  /measurements/:id(.:format)             measurements#update
+                        PUT    /measurements/:id(.:format)             measurements#update
+                        DELETE /measurements/:id(.:format)             measurements#destroy
+     recipe_ingredients GET    /recipe_ingredients(.:format)           recipe_ingredients#index
+                        POST   /recipe_ingredients(.:format)           recipe_ingredients#create
+  new_recipe_ingredient GET    /recipe_ingredients/new(.:format)       recipe_ingredients#new
+ edit_recipe_ingredient GET    /recipe_ingredients/:id/edit(.:format)  recipe_ingredients#edit
+      recipe_ingredient PATCH  /recipe_ingredients/:id(.:format)       recipe_ingredients#update
+                        PUT    /recipe_ingredients/:id(.:format)       recipe_ingredients#update
+                        DELETE /recipe_ingredients/:id(.:format)       recipe_ingredients#destroy
+                follows POST   /follows(.:format)                      follows#create
+                 follow DELETE /follows/:id(.:format)                  follows#destroy
+               comments GET    /comments(.:format)                     comments#index
+                        POST   /comments(.:format)                     comments#create
+            new_comment GET    /comments/new(.:format)                 comments#new
+           edit_comment GET    /comments/:id/edit(.:format)            comments#edit
+                comment PATCH  /comments/:id(.:format)                 comments#update
+                        PUT    /comments/:id(.:format)                 comments#update
+                        DELETE /comments/:id(.:format)                 comments#destroy
+                ratings GET    /ratings(.:format)                      ratings#index
+                        POST   /ratings(.:format)                      ratings#create
+             new_rating GET    /ratings/new(.:format)                  ratings#new
+            edit_rating GET    /ratings/:id/edit(.:format)             ratings#edit
+                 rating PATCH  /ratings/:id(.:format)                  ratings#update
+                        PUT    /ratings/:id(.:format)                  ratings#update
+                        DELETE /ratings/:id(.:format)                  ratings#destroy
+             checklists GET    /checklists(.:format)                   checklists#index
+                        POST   /checklists(.:format)                   checklists#create
+          new_checklist GET    /checklists/new(.:format)               checklists#new
+         edit_checklist GET    /checklists/:id/edit(.:format)          checklists#edit
+              checklist PATCH  /checklists/:id(.:format)               checklists#update
+                        PUT    /checklists/:id(.:format)               checklists#update
+                        DELETE /checklists/:id(.:format)               checklists#destroy
+     checklist_pictures GET    /checklist_pictures(.:format)           checklist_pictures#index
+                        POST   /checklist_pictures(.:format)           checklist_pictures#create
+  new_checklist_picture GET    /checklist_pictures/new(.:format)       checklist_pictures#new
+ edit_checklist_picture GET    /checklist_pictures/:id/edit(.:format)  checklist_pictures#edit
+      checklist_picture PATCH  /checklist_pictures/:id(.:format)       checklist_pictures#update
+                        PUT    /checklist_pictures/:id(.:format)       checklist_pictures#update
+                        DELETE /checklist_pictures/:id(.:format)       checklist_pictures#destroy
+edit_account_activation GET    /account_activations/:id/edit(.:format) account_activations#edit
+        password_resets POST   /password_resets(.:format)              password_resets#create
+     new_password_reset GET    /password_resets/new(.:format)          password_resets#new
+    edit_password_reset GET    /password_resets/:id/edit(.:format)     password_resets#edit
+         password_reset PATCH  /password_resets/:id(.:format)          password_resets#update
+                        PUT    /password_resets/:id(.:format)          password_resets#update
+                               /*path(.:format)                        main_pages#home
