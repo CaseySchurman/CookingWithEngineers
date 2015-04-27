@@ -1,6 +1,15 @@
 <!-- Main header in body of page -->
-<div class="header">
-    <%= link_to 'Cooking With Engineers', root_path, class: "headerTitleLink" %>
-  <!--  Show user links -->
-  <%= render 'layouts/links' %>
+<div class="mHide">
+    <div class="header">
+        <!--%= link_to 'Cooking With Engineers', root_path, id: "topText" %-->
+        <!--%= image_tag("LogoGray.png", height: '50', width: '65', class: "smallLogo") %-->
+        <%= link_to(image_tag("LogoGray.png", height: '62', width: '82', class: "smallLogo mHide"),root_path) %>
+      <!--  Show user links -->
+      <%= render 'layouts/links' %>
+    </div>
+</div>
+
+<div class="dHide">
+    <div class = "header"></div>
+    <%= render 'layouts/links' %>
 </div>

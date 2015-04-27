@@ -2,7 +2,7 @@ class DatabaseIngredient < ActiveRecord::Migration
   def change
     create_table :database_ingredients do |t|
       sql = ""
-      source = File.new("db/usda_national_nutrients_no_graves.sql", "r")
+      source = File.new("db/usda_database_trimmed_v1.sql", "r")
       while (line = source.gets)
         sql << line
       end

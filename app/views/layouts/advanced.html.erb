@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<!-- Main template for all pages -->
+<html>
+    <body>
+        <%= render 'layouts/head' %>
+        <%= text_field_tag :searchauthor, params[:searchauthor], placeholder: "Recipe Creator"%>
+        <%= text_field_tag :searchingredients, params[:searchingredients], placeholder: "Comma delimited ingredient list"%>
+        <span>Perform an inclusive ingredient search?</span>
+        <%= check_box_tag :exclusive %>
+        <span>Descending order?</span>
+        <%= check_box_tag :order %>
+        <span>Sort by rating?</span>
+        <%= check_box_tag :rating %>
+        <%= button_tag "Search", action: "index", class: "button blue3 center" %>
+    </body>
+</html>

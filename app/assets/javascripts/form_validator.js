@@ -7,7 +7,51 @@ $(document).ready(function() {
   $('#user_email').keyup(validateEmail);
   $('#user_password').keyup(validatePassword);
   $('#user_password_confirmation').keyup(validateConfirmation);
-
+  
+  function StrikeThrough(index, div, text) {
+    var _text = text;
+    if (index >= _text.length)
+        return false;
+    var sToStrike = _text.substr(0, index + 1);
+    var sAfter = (index < (_text.length - 1)) ? _text.substr(index + 1, _text.length - index) : "";
+    $(div).html("<strike>" + sToStrike + "</strike>" + sAfter);
+    window.setTimeout(function() {
+        StrikeThrough(index + 1, div, _text);
+    }, 50);
+  }
+  
+  function ClearStrikeThrough(index, div, text)
+  {
+    var _text = text;
+    if (index == -1)
+        return false;
+    var sToStrike = _text.substr(0, index);
+    var sAfter = (index > 0) ? _text.substr(index, _text.length - 1) : _text;
+    $(div).html("<strike>" + sToStrike + "</strike>" + sAfter);
+    window.setTimeout(function() {
+        ClearStrikeThrough(index - 1, div, _text);
+    }, 50);
+  }
+    
+  $('.checklistbox').change(function(){
+    var alt = $(this).attr('id');
+    var identifier = "#" + alt + ".checklisttext";
+    var c = this.checked;
+    var tdtext = "";
+    if (c == true)
+    {
+      tdtext = $(identifier).text(); 
+      StrikeThrough(0, identifier, tdtext);
+    }
+    else
+    {
+      tdtext = $(identifier).text();
+      ClearStrikeThrough(tdtext.length - 1, identifier, tdtext);
+    }
+    
+    $('p').css('color', c);
+  });
+  
   function validateAvailability()
   {
     var obj = $(this);
@@ -94,7 +138,7 @@ $(document).ready(function() {
                             addClass('error_show');
     obj.addClass('errorfield');
   }
-    
+  
   function removeError(obj)
   {
     $('span', obj.parent()).text("").removeClass('error_show').

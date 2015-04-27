@@ -23,6 +23,7 @@
     },
     "run": {
         "@path": "/.c9/runners",
+        "@runner": "Ruby on Rails (Rails 4.0 + Ruby 2.1)",
         "configs": {
             "@inited": "true",
             "json()": {}

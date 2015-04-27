@@ -20,17 +20,6 @@ class Recipe < ActiveRecord::Base
   #Ensure picture is under 5MB
   validate :picture_size
   
-public
-def self.search(query, query2)
-  @querytest = query
-  @querytest2 = query2
-  where("name like :query AND user_id = :query2", {query: "%#{query}%", query2: @querytest2})
-end
-
-def self.searchauthor(query)
-  where("user_id = ?", "%#{query}%")
-end
-  
 #PRIVATE########################################################################
 private
 

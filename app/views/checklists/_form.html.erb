@@ -1,6 +1,12 @@
 <!-- Form used for both new and editing checklist items -->
 <div class="form">
 <%= form_for @checklist, remote: true do |f| %>
+  <!-- Checklist Step Type -->
+  <p>
+    <div class ="group">
+      <%= f.select(:steptype, options_for_select([['Preparation', 0], ['Cooking', 1], ['Baking', 2]])) %>
+    </div>
+  </p>
   <p>
     <div class = "group">
       <!-- Adds description to page hash -->
@@ -16,6 +22,22 @@
       <%= content_tag :span, nil, :class => 'error' %>
     </div>
   </p>
+  
+    <div class = "BakingOption">
+      <p>
+        <div class= "group">
+        <%= f.number_field :baketemp, in: 1...600, placeholder: "Baking Temp" %>  
+        </div>  
+      </p>
+    </div>
+    
+    <p>
+      <div class = "group">
+        <%= number_field_tag :baketimeminutes, params[:baketimeminutes], in: 1...9999, placeholder: "Minutes" %>
+        <%= number_field_tag :baketimeseconds, params[:baketimeseconds], in: 1...60, placeholder: "Seconds" %>
+      </div>
+    </p>
+ 
   <% if @images.any? %>
     <p>
       <h2>Current Images</h2>

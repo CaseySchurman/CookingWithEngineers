@@ -27,7 +27,7 @@
 
 
 # sql = File.read('usda_national_nutrients_no_graves.sql')
-ActiveRecord::Base.connection.execute(IO.read("db/usda_national_nutrients_no_graves.sql"))
+ActiveRecord::Base.connection.execute(IO.read("db/usda_database_trimmed_v1.sql"))
 
 #DatabaseIngredients.delete_all
 

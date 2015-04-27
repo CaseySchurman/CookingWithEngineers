@@ -1,8 +1,19 @@
 $("#add_checklist_form").html('<%= j render 'checklists/form' %>');
-
+  
 //Verifies that the document is is ready after the partial has rendered.
 $(document).ready(function()
 {
+  
+  $(".BakingOption").hide();
+  
+  $("#checklist_steptype").change(function() {
+   var selection = $(this).val();
+   if (selection == 2) {
+       $(".BakingOption").show();
+   } else {
+       $(".BakingOption").hide();
+   }
+  });
   //Attaches listeners to the order and description HTML elements.
   $('#checklist_description').keyup(validateDescription);
   $('#checklist_order').keyup(validateOrder);

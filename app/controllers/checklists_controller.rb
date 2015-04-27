@@ -6,6 +6,7 @@
 # checklist items to an individual recipe.
 ################################################################################
 class ChecklistsController < ApplicationController
+  before_filter :fix_params, :only => [:create, :update]
   
   ##############################################################################
   # Builds a new checklist to store in the database
@@ -37,18 +38,34 @@ class ChecklistsController < ApplicationController
   ##############################################################################
   def create
     @checklist = current_recipe.checklists.build(checklist_params)
+    #If the time fields are empty set them to 0 so baketime has predictable
+    #behavior.
+    if params[:baketimeseconds] == nil
+      @seconds = 0
+    else
+      @seconds = params[:baketimeseconds].to_i
+    end
+    if params[:baketimeminutes] == nil
+      @minutes = 0
+     else
+      @minutes = params[:baketimeminutes].to_i 
+    end
+    @totalseconds = (@minutes * 60) + @seconds
+    
+    @checklist.baketime = @totalseconds
+    @recipe = current_recipe
     @obj = @checklist
     if(@checklist.save)
       #flash.alert = "Added Checklist Item"
       respond_to do |f|
         f.html {redirect_back_or current_recipe}
-        f.js {@checklist}
+        f.js {@recipe}
       end
     else
       #flash.now.alert = "Form Error"
       respond_to do |f|
         f.html {render 'shared/form'}
-        f.js {@checklist}
+        f.js {@recipe}
       end
     end
   end
@@ -83,6 +100,19 @@ class ChecklistsController < ApplicationController
   def update
     @recipe = Recipe.find(current_recipe)
     @checklist = current_recipe.checklists.find(params[:id])
+    if params[:baketimeseconds] == nil
+      @seconds = 0
+    else
+      @seconds = params[:baketimeseconds].to_i
+    end
+    if params[:baketimeminutes] == nil
+      @minutes = 0
+     else
+      @minutes = params[:baketimeminutes].to_i 
+    end
+    @totalseconds = (@minutes * 60) + @seconds
+    
+    @checklist.baketime = @totalseconds
     @obj = @checklist
     if(@checklist.update(checklist_params))
       respond_to do |f|
@@ -128,10 +158,13 @@ class ChecklistsController < ApplicationController
   
 #PRIVATE########################################################################
   private
+    def fix_params 
+    end
+  
     ############################################################################
     # Allows only permitted parameters to be submitted and used on the pages
     ############################################################################
     def checklist_params
-      params.require(:checklist).permit(:description, :order, :recipe_id)
+      params.require(:checklist).permit(:steptype, :baketemp, :baketime, :description, :order, :recipe_id)
     end
 end

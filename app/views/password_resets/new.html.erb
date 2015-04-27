@@ -1,27 +1,32 @@
 <% provide(:title, @page_title) %>
 
-<div class="content">
-<h1>Forgot Password</h1>
-<br>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<div class = "content">
+  <span style="display: block;" class="fadeInDown animated">
+    <span style="display: block; -webkit-animation-duration: 2.5s;" class="zoomIn animated">
+      <h1 class="bigText wordsTransLighten ">Forgot Password</h1>
+    </span>
+  </span>
+  <div class = "textBoxCenter group">
       <!-- Form uses email to find user in db in order to send a 
            password reset link -->
-    <%= form_for(:password_reset, url: password_resets_path) do |f| %>
-      <div class = "group">
-      <%=f.text_field :email, class: 'input', required: true %>
-      <%= content_tag :span, nil, :class => 'highlight' %>
-      <%= content_tag :span, nil, :class => 'bar' %>
-      <%= f.label :email %>
-    </div>
+    <span style="display: block; -webkit-animation-duration: 3.5s;" class="fadeInDown animated">
+      <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+        <%=f.text_field :email, class: 'input inputBlue', required: true %>
+        <%= content_tag :span, nil, :class => 'highlight' %>
+        <%= content_tag :span, nil, :class => 'bar' %>
+        <%= f.label :email, "Email", :class => 'emailInCenter' %>
       <!-- Adds email to page hash -->
       <!--<p>
         %= f.text_field :email, placeholder: "Email", class: 'form_control' %>
       </p>-->
-      
-      <!-- Sends email link -->
-      <p><%= f.submit 'Reset password', class: 'button red3 center' %></p>
-    <% end %>
+    </span>
   </div>
-</div>
+      <!-- Sends email link -->
+  <span style="display: block; -webkit-animation-duration: 3s;" class="fadeInUp animated">
+    <div>
+      <%= f.submit 'Reset Password', class: "button trans2 center buttonBoxBigger buttonText" %>
+    </div>
+  </span>
+    <% end %>
+
 </div>

@@ -9,6 +9,9 @@ $DarkGray:      #464646;
 $Gray:          #808080;
 $DarkCharBlack: #262626;
 $LiteOrangeTan: #d29f55;
+$Dark:          #444444;
+$Light:         #999999;
+$Black:         #000000;
 
 @media all and (min-width: 1024px) {
 	
@@ -21,13 +24,38 @@ body {
     height: 100%;
     min-height: 100%;
     background-size: 100%;
-    background-image: url("WebsiteBackPng.png");
-    background-image: no-repeat;
+    background-image: url("KitchenCat3.png");
+    background-repeat: no-repeat;
     background-attachment: fixed;
+    opacity: 1;
     margin: auto;
-    font-family: Georgia, "Times New Roman", Times, serif;
+    //font-family: Georgia, "Times New Roman", Times, serif;
+    //font-family: "Times New Roman", Times, serif;
+    //font-family: Impact, Charcoal, sans-serif;
+    //font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+    //font-family: Tahoma, Geneva, sans-serif;
+    //font-family: Century Gothic, sans-serif;
+    //font-family: ‘Lucida Sans Unicode’, ‘Lucida Grande’, sans-serif;
+    //font-family: ‘Arial Black’, Gadget, sans-serif;
+    //font-family: ‘Arial Narrow’, sans-serif;
+    //font-family: Verdana, Geneva, sans-serif;
+    //GoodOnefont-family: Copperplate / Copperplate Gothic Light, sans-serif;
+    //font-family: ‘Lucida Console’, Monaco, monospace;
+    //font-family: Gill Sans / Gill Sans MT, sans-serif;
+    //font-family: ‘Trebuchet MS’, Helvetica, sans-serif;
+    //font-family: ‘Courier New’, Courier, monospace;
+    //font-family: Arial, Helvetica, sans-serif;
+    //font-family: Georgia, Serif;
+    font-family: "open sans","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
 }
-
+#mHomePage {
+	visibility: hidden;
+    clear: both;
+    float: left;
+    margin: 10px auto 5px 20px;
+    width: 28%;
+    display: none;
+}
 .header {
     text-align: left;
     opacity: .88;
@@ -35,10 +63,11 @@ body {
     padding-left: 5px;
     padding-top: 6px;
     padding-bottom: 5px;
-    background-color: rgba(10,10,10,.75);
-    color: $White;
+    //background-color: rgba(100,100,100,.75);
+    color: $Dark;
     font-size: 200%;
     height: 75px;
+    font-weight: 800;
 }
 
 
@@ -49,7 +78,7 @@ body {
     left: 0;
     height: 30px;
     width: 100%;
-    background-color: rgba(10,10,10,.75);
+    background-color: rgba(100,100,100,.75);
     color: $White;
     opacity: .98;
     text-align: center;
@@ -81,17 +110,23 @@ body {
 .headerLinks {
     float: right;
 	display: inline;
-	margin: 15px 25px;
+	margin: 15px 8px;
+	margin-right: 2%;
 	outline: none;
-	color: $White;
+	color: $Dark;
 	text-decoration: none;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	font-weight: 400;
+	font-weight: 700;
 	text-shadow: 0 0 1px rgba(255,255,255,0.3);
-	font-size: 50%;
-	padding-top: 35px;
-
+	font-size: 37%;
+	padding-top: 5px;
+	transition: all 0.3s ease 0s;
+	box-shadow: 0 6px 4px -6px #000;
+	&:hover {
+		transition: all 0.3s ease 0s;
+		box-shadow: 0 2px 1px -2px #FFF;
+	}
 	&:before,
 	&:after {
 		display: inline-block;
@@ -115,6 +150,7 @@ body {
 	&:hover:after,
 	&:focus:before,
 	&:focus:after {
+		color: $Dark;
 		opacity: 1;
 		transform: translateX(0px);
 	}
@@ -129,7 +165,7 @@ body {
 //Footers Link Styling
 .footerLinks{
     padding: 10px;
-	color: $LiteOrangeTan;
+	color: $White;
 	font-weight: 700;
 	text-shadow: none;
 	transition: color 0.5s;
@@ -160,7 +196,7 @@ body {
 
 	&:hover,
 	&:focus{
-	    color: $White;
+	    color: $Light;
 	}
 
 	&:hover:before,
@@ -193,26 +229,26 @@ body {
 }
 
 .headerTitleLink {
-    color: $White;
+    //color: $White;
 }
 
 .headerTitleLink span {
     height: 1em;
-	position: relative;
-	display: inline-block;
-	transition: transform 0.3s;
+	//position: relative;
+	//display: inline-block;
+	//transition: transform 0.3s;
 }
 
 .headerTitleLink span:before {
-	position: absolute;
-	top: 100%;
-	content: attr(data-hover);
+	//position: absolute;
+	//top: 100%;
+	//content: attr(data-hover);
 	font-weight: 700;
-	transform: translate3d(0,0,0);
+	//transform: translate3d(0,0,0);
 }
 
 .headerTitleLink:hover span,
 .headerTitleLink:focus span{
-	transform: translateY(-100%);
+	//transform: translateY(-100%);
 }
 }

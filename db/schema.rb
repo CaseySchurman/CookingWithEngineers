@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310023712) do
+ActiveRecord::Schema.define(version: 20150419235959) do
 
   create_table "checklist_pictures", force: true do |t|
     t.string   "picture"
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(version: 20150310023712) do
     t.string   "recipe_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "baketime"
+    t.integer  "baketemp"
+    t.integer  "steptype"
   end
 
   add_index "checklists", ["recipe_id"], name: "index_checklists_on_recipe_id"

@@ -15,15 +15,53 @@
     </aside>
   </div>
 <% else %>
-  <div class="content">
-    <h1>Welcome to Cooking with Engineers</h1>
-    <h2 class = "darkText">
-      A user centered recipe sharing application 
-      developed by students at Oregon Tech for 
-      their Junior Project 2014-15 using Ruby on Rails
-      version 4.2
-    </h2>
-    <%= link_to "Register Now", new_user_path, :class => "button green2 center" %>
+<!--Mobile Site Start-->
+  
+<!--Mobile Site End-->
+
+<!--Desktop Site -->
+  <!--places Logo in the center -->
+  <div class="centeredStuff mHide">
+    <span style="display: block;" class="fadeInUp animated">
+      <%= image_tag("CookingLogoAllTransparent.png", height: '170', width: '220', class: "picture") %>
+    </span>
+  </div>
+  <!-- Cooking with Engineers Text with Animation -->
+  <div class="content mHide">
+    <span style="display: block;" class="fadeInDown animated">
+      <span style="display: block; -webkit-animation-duration: 4s;" class="zoomIn animated">
+        <div class="bigText wordsTransLighten">Cooking With Engineers</div>
+      </span>
+      <!-- Progressive bars for style -->
+      <div id ="progress"></div>
+      <!-- Gif Images of each of us -->
+      <span style="display: block; -webkit-animation-duration: 1s;" class="zoomIn animated">
+      <%= image_tag("AlexTransparent.gif", height: '140', width: '110') %>
+      <%= image_tag("CaseyTransparent.gif", height: '100', width: '100') %>
+      <%= image_tag("ChadTransparent.gif", height: '90', width: '80') %>
+      <img hspace="2" />
+      <%= image_tag("DanTransparent.gif", height: '120', width: '100') %>
+      <img hspace="2" />
+      <%= image_tag("JohnTransparent.gif", height: '90', width: '90') %>
+      </span>
+      <div id ="progress"></div>
+    </span>
+    <!-- Descriptive text -->
+    <span style="display: block;" class="fadeInUp animated">
+      <h2 id = "homeAboutText" class = "darkText wordsTransLighten">
+        A user centered recipe sharing application 
+        developed by students at Oregon Tech for 
+        their Junior Project 2014-15 using Ruby on Rails
+        version 4.2
+      </h2>
+    </span>
+    <!-- Login and Register Buttons -->
+    <span style="display: block;" class="fadeInDown animated">
+      <%= link_to "Sign Up", new_user_path, :class => "button trans center buttonBoxBig buttonText" %>
+      &nbsp;
+      &nbsp;
+      <%= link_to "Log In", login_path, :class => "button blue4 center buttonBoxBig buttonText" %>
+    </span>
   </div>
 <% end %>
 </html>
