@@ -52,6 +52,7 @@ class ChecklistsController < ApplicationController
     end
     @totalseconds = (@minutes * 60) + @seconds
     
+    
     @checklist.baketime = @totalseconds
     @recipe = current_recipe
     @obj = @checklist

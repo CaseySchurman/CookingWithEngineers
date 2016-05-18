@@ -2,29 +2,58 @@
 <!-- Shows information for a single checklist item-->
 <tr id = <%= checklist.id%> class="checklistrow">
   <!-- Checklist description -->
-  <td><%= check_box_tag checklist.id, 1, false, :class => "checklistbox" %></td>
-  <td id = <%= checklist.id%> class="checklisttext"><%= checklist.description %></td>
+  <td>
+      <div class = "centerCheckBox">
+        <%= check_box_tag checklist.id, 1, false, :class => "checklistbox squaredFour" %>
+        <label for = ""></label>
+      </div>
+  </td>
+  
+  <td id = <%= checklist.id%> class="checklisttext">
+      <%= checklist.description %>
+  </td>
+  
+  <!--If the baketemp is nonexistent, leave the td empty. -->
   <% if checklist.baketemp != nil %>
-    <td><%= checklist.baketemp %>&deg</td>
+    <!--Adjust cooking temps if user is able to/wants to use location-->
+    <% if cookies[:adjust] == '1' %>
+      <%= "***Baking times and temperatures are adjusted for your elevation***" %>
+      <% checklist.baketemp += 20 %>
+    <% end %>
+    
+    <td><%= checklist.baketemp %>&degF</td>
   <% else %>
     <td></td>
   <% end %>
+  
+  <!--If the baketime does not equal 0, leave the td empty. -->
   <% if checklist.baketime.to_i != 0 %>
-    <td><%= (checklist.baketime.to_i - (checklist.baketime.to_i % 60)) / 60 %>:<% if (checklist.baketime.to_i % 60) < 10 %>0<% end %><%= checklist.baketime.to_i % 60 %></td>
+    <!--Adjust cooking times if user is able to/wants to use location-->
+    <% if cookies[:adjust] == '1' %>
+      <% checklist.baketime -= (5 * 60) * ((checklist.baketime / 60) / 30) %>
+    <% end %>
+    
+      <!--Add the 0 in front of a single seconds digit under 10s. -->
+      <!--Do not wrap this <td></td>, it breaks, Chad. -->
+      <td id = <%= checklist.id%> class="checklisttimer"><%=(checklist.baketime.to_i - (checklist.baketime.to_i % 60)) / 60%>:<% if (checklist.baketime.to_i % 60) < 10 %>0<% end %><%=checklist.baketime.to_i % 60%></td>
     <% else %>
-    <td></td>
+      <td id = <%= checklist.id%> class="checklisttimer"></td>
   <% end %>
+  
   <!-- The comment -->
   <!-- <td><%= checklist.order %></td> -->
-  <!-- Show modificaiton links -->
-  <td>
-    <%= render 'shared/rmod_links', object: checklist %>
-  </td>
-  <td>
-    <% if @images.any? %>
+  
+  <% if current_user?(@recipe.user) %>
+    <!-- Show modificaiton links -->
+    <td><%= render 'shared/rmod_links', object: checklist %></td>
+  <% end %>
+ 
+  <% if @images.any? %>
+    <td>
       <% @images.each do |i| %>
         <%= image_tag i.picture.url %>
       <% end %>
-    <% end %>
-  </td>
+    </td>
+  <% end %>
+  
 </tr>

@@ -3,9 +3,15 @@
 <%= will_paginate %>
 <div class = "content">
     <h2>All Users</h2>
-<ul class="users">
-  <%= render @users %> 
-</ul>
+<table class = "centerStyle">
+    <%= render 'users/table_header' %>
+    <% @users.each do |user| %>
+        <tr>
+            <td><%= link_to user.username, user %></td>
+            <td><%= user.email %></td>
+        </tr>
+    <% end %>
+</table>
 
 <%= will_paginate %>
 </div>

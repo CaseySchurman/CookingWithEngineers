@@ -1,15 +1,21 @@
 <% provide(:title, @page_title ) %>
 <!-- Shows a users recipes -->
-<div class="recipes">
-    <div class="content">
-    <h2>Recipes for <%= @user.username %></h2>
+<div class="content mHide">
+  <span style="display: block; -webkit-animation-duration: 2s;" class="fadeInUp animated">
+<h2 class="bigText">Recipes for <%= @user.username %></h2>
+  </span>
+  <span style="display: block; -webkit-animation-duration: 2s;" class="fadeInRight animated">
     <%= render 'follow_form' %>
-    <%= link_to 'Add Recipe', new_recipe_path, class: "button red center" %>
+    </span>
+    <span style="display: block; -webkit-animation-duration: 2s;" class="fadeInLeft animated">
+    <%= link_to 'Add Recipe', new_recipe_path, class: "button blue4 center buttonBoxBig buttonText" %>
+    </span>
+    </div>
+<div class="centerRecipe mHide">
     <!-- Displa all user recipes -->
     <%= render @recipes %>
     <%= will_paginate @recipes %>
     <!-- Show un/follow buttons -->
     <!-- Show add recipe button -->
     <!--%= link_to 'Add Recipe', new_recipe_path, class: "button red center" %> -->
-</div>
 </div>

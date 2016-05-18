@@ -1,0 +1,17 @@
+<%= audio_tag("alarmsound.mp3", id: "alarmbell", autoplay: false, controls: false) %>
+<h2>Checklist Items</h2>
+ <!-- Display all checklist items -->
+ <div class="checklists">
+  <table class="darkText" id="checklists_table">
+    <%= render 'recipes/checklistheader' %>
+    <%= render @recipe.checklists %>
+  </table>
+  
+  <div id="add_checklist_form"></div>
+  
+  <div id="AddStepButton">
+  <%= link_to 'Add Step', new_checklist_path, remote: true,
+      class: "button trans center buttonBoxBigger buttonText" if current_user?(@recipe.user) %>
+  </div>
+  
+</div>

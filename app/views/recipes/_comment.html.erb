@@ -1,0 +1,13 @@
+<h2>Comments</h2>
+<!-- Display all recipe comments. Newest comments display first -->
+<div class="darkText comments">
+  <div id="recipe_comments"><%= render @recipe.comments %></div>
+  
+  <div id="recipe_comment_form"></div>
+  
+  <div id="AddCommentButton">
+    <%= link_to 'Add Comment', new_comment_path, remote: true,
+      class: "button trans2 center buttonBoxBigger buttonText" if logged_in? %>
+  </div>
+  <!-- New comment button for logged in users -->
+</div>

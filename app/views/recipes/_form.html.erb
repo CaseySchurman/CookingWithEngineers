@@ -1,23 +1,37 @@
 <!-- Form for editing and new recipes -->
-  <h1>Create Recipe</h1>
-  <br>
-  <!-- Includes multipart for file uploading -->
+
+<div class="content contentText">
+    <span style="display: block;" class="fadeInDown animated">
+    <span style="display: block; -webkit-animation-duration: 2.5s;" class="zoomIn animated">
+      
+      <h2 class="littleBiggerText wordsTransLighten">Create Recipe</h2>
+    </span>
+    </span>
   <%= form_for(@recipe, html: { multipart: true }) do |f| %>
-  <div class = "group">
-      <%=f.text_field :name, class: 'input', required: true %>
+  <span style="display: block; -webkit-animation-duration: 3.5s;" class="fadeInLeftBounce animated">
+      <div class = "textBoxCenter group">
+  <!-- Includes multipart for file uploading -->
+      <%=f.text_field :name, class: 'input inputBlue', required: true %>
       <%= content_tag :span, nil, :class => 'highlight' %>
       <%= content_tag :span, nil, :class => 'bar' %>
-      <%= f.label :name %>
+      <%= f.label :name, "Name", :class => 'emailInCenter' %>
     </div>
-    <p>
-    <h2>Add Image</h2>
-    <span class="picture">
-      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
+  <span style="display: block;" class="fadeInDown animated">
+    <span style="display: block; -webkit-animation-duration: 2.5s;" class="zoomIn animated">
+      <h1 class="contentText wordsTransLighten">Add Image</h1>
     </span>
-    <p>
+    </span>
+  <span style="display: block; -webkit-animation-duration: 3.5s;" class="fadeInRightBounce animated">
+      <div class = "addImageText textBoxCenter group">
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+      </div>
+  </span>
+  <span style="display: block; -webkit-animation-duration: 3.5s;" class="fadeInUp animated">
       <!-- Creates/Updates user recipe -->
-      <%= f.submit @btnText, class: "button red center" %>
-    </p>
+      <%= f.submit @btnText, class: "button green3 center buttonBoxBigger buttonText" %>
+  </span>
+  </div>
   <% end %>
   <script type="text/javascript">
     $('#recipe_picture').bind('change', function() {

@@ -1,0 +1,21 @@
+<!-- This < %if false % > makes it never get rendered. chage to true if you want it to render-->
+
+<% if true %>
+  <%= form_tag recipes_path, :method => "get" do |f| %>
+    <div class="RecipeTextBox input-append">
+    <%= text_field_tag :search, params[:search], placeholder: "Recipe Name"%>
+    <span id="advancedsearch" hidden>
+    <%= text_field_tag :searchauthor, params[:searchauthor], placeholder: "Recipe Creator", class: "RecipeTextBox"%>
+    <%= text_field_tag :searchingredients, params[:searchingredients], placeholder: "Ingredients"%>
+    <p>Ingredient search: <%= check_box_tag :exclusive, 1, false, :class => "checklist squaredFour" %></p>
+    <p>Descending order: <%= check_box_tag :order, 1, false, :class => "checklist squaredFour" %></p>
+    <p>Sort by the rating: <%= check_box_tag :rating, 1, false, :class => "checklist squaredFour" %></p>
+    </span>
+    <%= button_tag "Search", action: "index", class: "button trans2 center buttonText searchButton" %>
+    <p>Advanced Search: <%= check_box_tag "advancedbox", 1, false, :class => "checklist squaredFour" %> </p>
+    
+    <!--%= button_tag "Advanced", action: "app/views/layouts/advanced.html.erb" %-->
+    </div>
+    <!-- end for if false -->
+  <% end %>
+<% end %>

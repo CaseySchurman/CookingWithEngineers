@@ -1,9 +1,8 @@
 <!-- Displays a single users information.  Username links to recipes -->
-<li>
-  Username: <%= link_to user.username, user %>
-  Email: <%= user.email %>
-  <% if admin  && !user.admin? %>
-    <%= link_to "delete", user, method: :delete,
-        data: { confirm: "Are you sure" } %>
-  <% end %>
-</li>
+
+<td><%= link_to user.username, user %></td>
+<td><%= user.email %></td>
+    <% if admin  && !user.admin? %>
+    <td><%= link_to "delete", user, method: :delete,
+    data: { confirm: "Are you sure" } %>
+    <% end %></td>

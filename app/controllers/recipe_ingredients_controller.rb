@@ -19,8 +19,9 @@ class RecipeIngredientsController < ApplicationController
     @recipe = Recipe.find(current_recipe)
     @page_title = "New Recipe Ingredient"
     @recipe_ingredient = current_recipe.recipe_ingredients.build
-    @btnText = "Add Ingredient"
+    @btnText = "Add to recipe"
     @obj = @recipe_ingredient
+    #render 'shared/form'
     respond_to do |f|
       f.html {render 'shared/form'}
       f.js {@recipe}

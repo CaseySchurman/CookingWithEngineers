@@ -1,31 +1,15 @@
 <% provide(:title, @page_title) %>
 <!-- Displays All recipes -->
-<!-- <div class = "content"> -->
 <div class="content mHide">
-<h2>All Recipes</h2>
-<%= link_to 'Add Recipe', new_recipe_path, class: "button red center" if logged_in? %>
-<%= render @recipes %>
-<p>
-  <!-- Provide link to add a recipe if user is logged in -->
-  <%= link_to 'Add Recipe', new_recipe_path, class: "button red center" if logged_in? %>
-</p>
+  <span style="display: block; -webkit-animation-duration: 2.5s;" class="fadeInDown animated">
+    <span style="display: block; -webkit-animation-duration: 2.5s;" class="zoomIn animated">
+      <h2 class="bigText wordsTransLighten">All Recipes  </h2>
+    </span>
+  </span>
+  <span style="display: block; -webkit-animation-duration: 2s;" class="fadeInLeft animated">
+    <%= link_to 'Add Recipe', new_recipe_path, class: "button blue4 center buttonBoxBig buttonText" if logged_in? %>
+  </span>
 </div>
-
-<div class="content dHide">
-<h2>All Recipes</h2>
-<div class = "mContent dHide">
-    <% @recipes.each do |recipe| %>
-    <div class="m_wrapper">
-        <div class="dashboard clearfix">
-          <ul class="tiles">
-        <div class="col1 clearfix">
-          <li class="tile tile-big tile-1 slideTextLeft">
-            <div><p><%= recipe.name %></p></div>
-            <div><p><%= "Average user rating: #{recipe.rating}"  if !recipe.rating.nil?%></p></div>
-          </li>
-        </div>
-        </div>
-    </div>
-    <% end %>
-  </div>
+<div class="centerRecipe mHide">
+<%= render @recipes %>
 </div>

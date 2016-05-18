@@ -5,12 +5,15 @@
     <!-- Adds quantity to page hash -->
     <!--%= f.label :quantity %-->
     <div class = "group">
+      <h3>Quantity:</h3>
+       <div class = "textBoxCenter">
       <!-- Adds description to page hash -->
-      <%= f.number_field :quantity, placeholder: 0, class: 'input', step: 'any' %>
+      <%= f.number_field :quantity, placeholder: 0, class: 'Iinput', step: 'any' %>
       <%= content_tag :span, nil, :class => 'error' %>
+      </div>
     </div>
-  </p>
-  <p>
+  <!-- /p>
+  <p -->
     <!--########################################################################
     # Clean way to build option select from database items.
     # Select box contails all avaliable measurements.  Adds measurement id
@@ -18,10 +21,10 @@
     #########################################################################-->
     <!--%= f.label :measurement %-->
     <%= collection_select(:recipe_ingredient, 
-        :measurement_id, Measurement.all, :id, :name)%>
-    <%= link_to 'new', new_measurement_path if admin %>
-  </p>
-  <p>
+        :measurement_id, Measurement.all, :id, :name) %>
+    <%= link_to 'new', new_measurement_path %>
+  <!-- /p>
+  <p -->
     <!--########################################################################
     # Another way to build option select from database items.
     # Select box contails all avaliable ingredients.  Adds ingredeint id
@@ -31,19 +34,24 @@
     <%= f.select :ingredient_id, 
           options_for_select(Ingredient.all.map{|i| [i.name,i.id]}, 
           :selected => @recipe_ingredient.ingredient_id ) %>
-    <%= link_to 'new', new_ingredient_path if admin %>
-  </p>
-  <p>
+    <%= link_to 'new', new_ingredient_path %>
+  <!-- /p>
+  <p-->
     <!--########################################################################
     # Additional information such as chopped, sliced, sifted etc added to 
     # page hash
     #########################################################################-->
     <!--%= f.label "Additional" %-->
-    <%= f.text_field :text, placeholder: "Addt'l Info" %>
-  </p>
-  <p>
+    <br />
+    <br />
+    <div class = "textBoxCenter">
+      <%= f.text_field :text, placeholder: "Addt'l Info" %>
+    </div>
+  <!--/p>
+  <p -->
     <!-- creates/Updates recipe ingredient -->
-    <%= f.submit @btnText, class: "button red3 center" %>
+    <br />
+      <%= f.submit @btnText, class: "button dark center" %>
   </p>
 <% end %>
 </div>

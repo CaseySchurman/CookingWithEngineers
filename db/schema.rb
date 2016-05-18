@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419235959) do
+ActiveRecord::Schema.define(version: 20150506011451) do
 
   create_table "checklist_pictures", force: true do |t|
     t.string   "picture"
@@ -92,11 +92,11 @@ ActiveRecord::Schema.define(version: 20150419235959) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "recipe_id"
-    t.integer  "ingredient_id"
     t.integer  "measurement_id"
+    t.integer  "ingredient_id"
   end
 
-  add_index "recipe_ingredients", ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
+  add_index "recipe_ingredients", ["ingredient_id"], name: "index_recipe_ingredients_on_usda_ingredient_id"
   add_index "recipe_ingredients", ["measurement_id"], name: "index_recipe_ingredients_on_measurement_id"
   add_index "recipe_ingredients", ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
 
@@ -111,6 +111,13 @@ ActiveRecord::Schema.define(version: 20150419235959) do
 
   add_index "recipes", ["name", "user_id"], name: "index_recipes_on_name_and_user_id", unique: true
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"
+
+  create_table "usda_ingredients", force: true do |t|
+    t.string   "ndb"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"

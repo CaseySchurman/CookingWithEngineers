@@ -3,14 +3,14 @@
     <% if @rating.nil? %>
     <div id="AddRatingButton">
         <%= link_to 'Add Rating', new_rating_path, remote: true,
-          class: "button dark3 center" %>
+          class: "button trans2 center buttonBoxBigger buttonText" %>
     </div>
     <!-- Otherwise show current rating and edit rating button -->
     <% else %>
       <%= "Current rating is: #{@rating.vote}" %>
       <div id="EditRatingButton">
       <%= link_to 'Edit Rating', edit_rating_path(@rating), remote: true,
-          class: "button dark3 center" %>
+          class: "button trans2 center buttonBoxBigger buttonText" %>
       </div>
     <% end %>
   <% end %>

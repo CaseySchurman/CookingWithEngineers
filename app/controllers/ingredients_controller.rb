@@ -8,7 +8,7 @@
 class IngredientsController < ApplicationController
   
     #Ensures that only admins can add ingredients
-  before_action :admin_user
+  #before_action :admin_user
   
   ##############################################################################
   # Builds a new ingredient to store in the database
@@ -99,7 +99,7 @@ class IngredientsController < ApplicationController
   #  Exit: none
   ##############################################################################
   def index
-    @page_title = "All Ingredeients"
+    @page_title = "All Ingredients"
     @ingredients = Ingredient.all
   end
   

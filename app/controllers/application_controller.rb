@@ -68,4 +68,14 @@ before_action :logged_in_user, except: [:new, :show]
   def correct_user(user)
       redirect_to(root_url) unless (admin || current_user?(user))
   end
+
+helper_method :mobile?
+
+private
+  ##############################################################################
+  # Checks the user agent to see if user has a mobile device
+  ##############################################################################
+  def mobile?  
+   request.user_agent =~ /Mobile|webOS/  
+  end 
 end

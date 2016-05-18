@@ -1,8 +1,28 @@
 <head>
+    <!-- selectively load css for user or desktop -->
+  <% unless !mobile? %>
+    <!-- List stylesheets and javascript specific for desktop version -->
+    <%= stylesheet_link_tag "Alex" %>
+    <!--%= javascript_include_tag "name_of_JS_file" %-->
+  <%else%>
+    <!-- List stylesheets and javascript specific for mobile version -->
+    <%= stylesheet_link_tag "Mobile.Casey" %>
+    <%= stylesheet_link_tag "Alex" %>
+    <!--%= javascript_include_tag "name_of_JS_file" %-->
+  <% end%>
+  
   <!-- Uses application helper to evaluate page title -->
   <title><%= full_title(yield(:title)) %></title>
-  <%= stylesheet_link_tag "application", :media => "all" %>
+  
+  <!--%= stylesheet_link_tag "application", :media => "all" %-->
+  <!-- "Includes" Google API objects and then goes to elevation JavaScript file -->
+  <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
+  <script type="text/javascript" src="app/assets/javascripts/elevation.js"></script>
   <%= javascript_include_tag "application" %>
+  
+  <!-- protect against cross site foregery requests -->
   <%= csrf_meta_tags %>
+  
+  <!-- load additional shims for usability -->
   <%= render 'layouts/shim' %>
 </head>

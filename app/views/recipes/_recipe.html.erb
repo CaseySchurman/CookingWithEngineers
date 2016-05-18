@@ -1,12 +1,40 @@
-<!--############################################################################
-# Displays a single recipe link with average user rating.
-#############################################################################-->
-<p>
-  <%= image_tag recipe.picture.url if recipe.picture? %>
-  <br>
-  <%= recipe.user.username %>
-  <%= link_to recipe.name, recipe, class: "recipe_entry" %>
-  <%= "Average user rating: #{recipe.rating}" if !recipe.rating.nil? %>
-</p>
-<!-- Show modificaiton links -->
-<%= render 'shared/mod_links', object: recipe %>
+<div class="displayRecipe">
+  <span style="display: block; -webkit-animation-duration: 2s;" class="fadeInDown animated">
+  <div class="recipeImage1">
+    <br>
+    <%= link_to recipe do %>
+      <%= image_tag recipe.picture.url, height: '200', width: '300' if recipe.picture? %>
+      <%= image_tag("DefaultImage.png", height: '200', width: '300') if !recipe.picture? %>
+    <%end%>
+    
+    <span />
+    
+    <% if !recipe.rating.nil? %>
+    <span class="hoverRecipeText">
+      <div class="recipeRatingText">
+      <span style="display: block; -webkit-animation-duration: .5s;" class="fadeInDown animated">
+      <span class="recipeRatingSpan">
+        <%= "Rating: #{recipe.rating}" %>
+      </span>
+    </span>
+    </div>
+    </span>
+    <% end %>
+      
+      <span class="hoverRecipeText">
+    <div class="recipeText">
+    <span style="display: block; -webkit-animation-duration: .5s;" class="fadeInUp animated">
+      <span class="recipeSpan">
+        <%= link_to recipe.user.username, recipe.user, class: "lightText" %>
+        <%= link_to recipe.name, recipe, class: "recipe_entry" %>
+      </span>
+    </span>
+  </div>
+  </span>
+  <!--br-->
+  </div>
+  <!-- Show modificaiton links -->
+  <%= render 'shared/mod_links', object: recipe %>
+  <br/>
+</div>
+

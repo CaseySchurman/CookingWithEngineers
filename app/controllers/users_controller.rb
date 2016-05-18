@@ -78,7 +78,7 @@ class UsersController < ApplicationController
   ##############################################################################
   def index
     @page_title = "All Users"
-    @users = User.where(activated: true).paginate(page: params[:page])
+    @users = User.paginate(page: params[:page])
   end
   
   ##############################################################################

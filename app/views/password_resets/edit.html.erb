@@ -1,9 +1,9 @@
 <% provide(:title, @page_title) %>
 <!-- Form allows user to reset password -->
-<div class="content">
+<div class="content contentText">
 <span style="display: block;" class="fadeInDown animated">
     <span style="display: block; -webkit-animation-duration: 2.5s;" class="zoomIn animated">
-      <h1 class="bigText wordsTransLighten ">Reset Password</h1>
+      <h1 class="littleBiggerText wordsTransLighten ">Reset Password</h1>
     </span>
   </span>
   
@@ -17,7 +17,7 @@
         <span style="display: block; -webkit-animation-duration: 3.5s;" class="fadeInRightBounce animated">
       <!-- Adds password to page hash -->
         <%= f.password_field :password, class: 'input inputBlue form_control', required: true %>
-        <%= content_tag :span, nil, :class => 'highlight' %>
+        <%= content_tag :span, nil, :class => 'highlight hideText' %>
         <%= content_tag :span, nil, :class => 'bar' %>
         <%= f.label :password %>
         </span>
@@ -27,7 +27,7 @@
         <span style="display: block; -webkit-animation-duration: 3.5s;" class="fadeInLeftBounce animated">
       <!-- Adds password confirm to pahe hash -->
         <%= f.password_field :password_confirmation, class: 'input inputBlue form_control', required: true %>
-        <%= content_tag :span, nil, :class => 'highlight' %>
+        <%= content_tag :span, nil, :class => 'highlight hideText' %>
         <%= content_tag :span, nil, :class => 'bar' %>
         <%= f.label :password, "Re-Enter" %>
         </span>
@@ -40,4 +40,5 @@
       </span>
     <% end %>
   
+</div>
 </div>

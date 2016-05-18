@@ -8,7 +8,7 @@
 class MeasurementsController < ApplicationController
   
     #Ensures that only admins can add ingredients
-  before_action :admin_user
+  #before_action :admin_user
   
   ##############################################################################
   # Allows new measurement to database

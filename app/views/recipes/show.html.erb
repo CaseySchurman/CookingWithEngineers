@@ -5,58 +5,20 @@
 #############################################################################-->
 <!-- Recipe name as header -->
 <div class="content">
-<h1 class="darkText"><%= @recipe.name%></h1>
-<h2>Recipe Ingredients</h2>
-<!-- Display recipe ingredients in table -->
-<div class="ingredients">
-  <table class="darkText" id="recipe_ingredients_table">
-    <%= render 'recipes/tableheader' %>
-    <%= render @recipe.recipe_ingredients %>
-  </table>
-    <div id="add_ingredient_form"></div>
-    <!-- Provide link to add ingredient if user is owner of recipe -->
-    
-    <div id="AddIngredientButton">
-      <%= link_to 'Add Ingredient', new_recipe_ingredient_path, remote: true,
-        class: "button red3 center" if current_user?(@recipe.user) %>
-    </div>
-</div>
-<hr />
-<h2>Checklist Items</h2>
- <!-- Display all checklist items -->
- <div class="checklists">
-  <table class="darkText" id="checklists_table">
-    <%= render 'recipes/checklistheader' %>
-    <%= render @recipe.checklists %>
-  </table>
-  
-  <div id="add_checklist_form"></div>
-  
-  <div id="AddStepButton">
-  <%= link_to 'Add Step', new_checklist_path, remote: true,
-      class: "button green center" if current_user?(@recipe.user) %>
-  </div>
-  
-</div>
-<hr />
-<h2>Comments</h2>
-<!-- Display all recipe comments. Newest comments display first -->
-<div class="darkText comments">
-  <div id="recipe_comments"><%= render @recipe.comments %></div>
-  
-  <div id="recipe_comment_form"></div>
-  
-  <div id="AddCommentButton">
-    <%= link_to 'Add Comment', new_comment_path, remote: true,
-      class: "button blue3 center" if logged_in? %>
-  </div>
-  <!-- New comment button for logged in users -->
-</div>
-<hr />
-<h2>Your Rating</h2>
-<!-- Allow logged in users to rate recipe -->
-<div class="darkText rating">
-  <div id="rating_form">
-    <%= render 'recipes/printrating' %>
-  </div>
+  <h1 class="darkText">
+    <%= @recipe.name%>
+  </h1>
+  <%= render 'ingredients' %>
+  <!-- Serving size -->
+  <hr />
+    <h3>Recipe Amount Multiplier:</h3>
+     <div class = "textBoxCenter">
+      <%= number_field_tag 'Servings', '1', class: 'smallNumberBox', in: 1...9999%>
+     </div>
+  <hr />
+  <%= render 'checklist' %>
+  <hr />
+  <%= render 'comment' %>
+  <hr />
+  <%= render 'rating' %>
 </div>

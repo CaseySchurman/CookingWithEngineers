@@ -88,6 +88,7 @@ class RecipesController < ApplicationController
     if(@recipe.update(recipe_params))
       flash.alert = "Recipe updated"
       redirect_to current_user
+      return
     else
       flash.now.alert = "Error"
       render 'shared/form'

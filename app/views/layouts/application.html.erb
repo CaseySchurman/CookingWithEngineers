@@ -1,47 +1,52 @@
 <!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=.5, maximum-scale=.5, user-scalable=0"/> <!--Mobile Help-->
 <!-- Main template for all pages -->
 <html>
-  <head>
-    <!-- "Includes" Google API objects and then goes to elevation JavaScript file -->
-    <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript" src="app/assets/javascripts/elevation.js"></script>
-  </head>
     <!-- Head of document _head.html.erb -->
   <%= render 'layouts/head' %>
+  <span id="ElevationBanner" class="dHide">
+    <div style="text-align: center;" class="banner">Would you like to adjust the cooking times and temperatures according to your elevation?
+      <button id="yesBtn">Yes please</button>
+      <button id="noBtn">No thanks</button>
+    </div>
+  </span>
+  <span id="ElevationNoLocation" class="dHide">
+    <div style="text-align: center;" class="banner">Your elevation could not be found.
+      <button id="okayBtn">Okay</button>
+    </div>
+  </span>
   <body>
       <!-- Page header _header.html.erb -->
     <%= render 'layouts/header' %>
-    <!-- This < %if false % > makes it never get rendered -->
-    <% if true %>
-    <%= form_tag recipes_path, :method => "get", id: "search-form" do |f| %>
-      <div class="input-append">
-      <%= text_field_tag :search, params[:search], placeholder: "Recipe Name" %>
-      <%= text_field_tag :searchauthor, params[:searchauthor], placeholder: "Recipe Creator"%>
-      <%= text_field_tag :searchingredients, params[:searchingredients], placeholder: "Comma delimited ingredient list"%>
-      <span>Perform an inclusive ingredient search?</span>
-      <%= check_box_tag :exclusive %>
-      <span>Descending order?</span>
-      <%= check_box_tag :order %>
-      <span>Sort by rating?</span>
-      <%= check_box_tag :rating %>
-      <%= button_tag "Search", action: "index", class: "button blue3 center" %>
-      <!--%= button_tag "Advanced", action: "app/views/layouts/advanced.html.erb" %-->
-      </div>
-      <!-- end for if false -->
-    <% end %>
-    <% end %>
+    
+    <span id="searchBarSpan">
+      <!-- Search partial  _search.html.erb -->
+      <%= render 'layouts/search' %>
+    </span>
+    <!-- Flash messages to user (Errors/Successes)  -->
+    <span style="display: block; -webkit-animation-duration: 2s;" class="fadeInLeft animated">
+      <span style="display: block; -webkit-animation-duration: 2s;" class="zoomIn animated">
+        <div class = "flashErrors">
+          <%= render 'shared/flash' %>
+        </div>
+      </span>
+    </span>
+      <!-- Main body container -->
     <div class="container">
-      <!-- Flash messages to user  -->
-      <%= render 'shared/flash' %>
       <!-- Display content for request <page_request>.html.erb -->
       <%= yield %>
     </div>
-    <div class="header">
-    <%= link_to 'Cooking With Engineers', root_path, id: "topText" %>
-  </div>
-      <!-- Page footer _foother.html.erb -->
-    <%= render 'layouts/footer' %>
+      <!-- Displays debug info if in development environment  -->
   </body>
-  <%= debug(params) if Rails.env.development? %>
-  
+  <div class="dev_debug dHide">
+      <%= debug(params) if Rails.env.development? %>
+  </div>
+  <div class = "footerOnBottom"></div>
+    <!-- Page footer _footer.html.erb -->
+  <%= render 'layouts/footer' %>
+    
+<!-- Script for the footer to stickon the bottom -->
+<script>
+  $('.footer').css('margin-top',$(document).height() - (($('.header').height() + $('.content').height()  ) - $('.footer').height()));
+</script>
 </html>

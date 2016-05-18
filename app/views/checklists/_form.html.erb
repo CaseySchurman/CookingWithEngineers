@@ -8,7 +8,7 @@
     </div>
   </p>
   <p>
-    <div class = "group">
+    <div class = "textBoxCenter group">
       <!-- Adds description to page hash -->
       <%= f.text_area :description, placeholder: "Item" %>
       </br>
@@ -16,7 +16,7 @@
     </div>
   </p>
   <p>
-    <div class = "group">
+    <div class = "textBoxCenter group">
       <!-- Adds order to page hash -->
       <%= f.number_field :order, placeholder: "Order" %>
       <%= content_tag :span, nil, :class => 'error' %>
@@ -25,14 +25,14 @@
   
     <div class = "BakingOption">
       <p>
-        <div class= "group">
+        <div class= "textBoxCenter group">
         <%= f.number_field :baketemp, in: 1...600, placeholder: "Baking Temp" %>  
         </div>  
       </p>
     </div>
     
     <p>
-      <div class = "group">
+      <div class = "textBoxCenter group">
         <%= number_field_tag :baketimeminutes, params[:baketimeminutes], in: 1...9999, placeholder: "Minutes" %>
         <%= number_field_tag :baketimeseconds, params[:baketimeseconds], in: 1...60, placeholder: "Seconds" %>
       </div>
@@ -53,7 +53,7 @@
   <% end %>
   <!-- Creates/Edits checklist item -->
   <p>
-    <%= f.submit @btnText, class: "button green center" %>
+    <%= f.submit @btnText, class: "button dark center" %>
   </p>
 <% end %>
 </div>

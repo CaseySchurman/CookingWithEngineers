@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-<% provide(@page_title) %>
+<!--% provide(:title, @page_title) %-->
 <!-- Root of application content -->
 <% if logged_in? %>
-  <div class="content">
+  <div class="content contentText">
       <br>
     <aside class="col-md-4">
       <section class="user_info">
@@ -21,13 +19,13 @@
 
 <!--Desktop Site -->
   <!--places Logo in the center -->
-  <div class="centeredStuff mHide">
+  <div class="centeredStuff">
     <span style="display: block;" class="fadeInUp animated">
       <%= image_tag("CookingLogoAllTransparent.png", height: '170', width: '220', class: "picture") %>
     </span>
   </div>
   <!-- Cooking with Engineers Text with Animation -->
-  <div class="content mHide">
+  <div class="content contentText">
     <span style="display: block;" class="fadeInDown animated">
       <span style="display: block; -webkit-animation-duration: 4s;" class="zoomIn animated">
         <div class="bigText wordsTransLighten">Cooking With Engineers</div>
@@ -35,15 +33,17 @@
       <!-- Progressive bars for style -->
       <div id ="progress"></div>
       <!-- Gif Images of each of us -->
+       <% unless mobile? %>
       <span style="display: block; -webkit-animation-duration: 1s;" class="zoomIn animated">
-      <%= image_tag("AlexTransparent.gif", height: '140', width: '110') %>
-      <%= image_tag("CaseyTransparent.gif", height: '100', width: '100') %>
-      <%= image_tag("ChadTransparent.gif", height: '90', width: '80') %>
+      <%= link_to image_tag("AlexTransparent.gif", height: '140', width: '110'), "https://github.com/alextappin/" %>
+      <%= link_to image_tag("CaseyTransparent.gif", height: '100', width: '100'), "https://github.com/CaseySchurman/" %>
+      <%= link_to image_tag("ChadTransparent.gif", height: '90', width: '80'), "https://github.com/chedder00/" %>
       <img hspace="2" />
-      <%= image_tag("DanTransparent.gif", height: '120', width: '100') %>
+      <%= link_to image_tag("DanTransparent.gif", height: '120', width: '100'), "https://github.com/danstelle/" %>
       <img hspace="2" />
-      <%= image_tag("JohnTransparent.gif", height: '90', width: '90') %>
+      <%= link_to image_tag("JohnTransparent.gif", height: '90', width: '90'), "https://github.com/johnathanleuthold/"%>
       </span>
+      <%end%>
       <div id ="progress"></div>
     </span>
     <!-- Descriptive text -->
@@ -57,11 +57,10 @@
     </span>
     <!-- Login and Register Buttons -->
     <span style="display: block;" class="fadeInDown animated">
-      <%= link_to "Sign Up", new_user_path, :class => "button trans center buttonBoxBig buttonText" %>
+      <%= link_to "Register", new_user_path, :class => "button trans center buttonBoxBig buttonText" %>
       &nbsp;
       &nbsp;
       <%= link_to "Log In", login_path, :class => "button blue4 center buttonBoxBig buttonText" %>
     </span>
   </div>
 <% end %>
-</html>

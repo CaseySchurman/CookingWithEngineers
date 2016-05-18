@@ -1,9 +1,9 @@
 <% provide(:title, @page_title) %>
 
-<div class = "content">
+<div class = "content contentText">
   <span style="display: block;" class="fadeInDown animated">
     <span style="display: block; -webkit-animation-duration: 2.5s;" class="zoomIn animated">
-      <h1 class="bigText wordsTransLighten ">Forgot Password</h1>
+      <h1 class="littleBiggerText wordsTransLighten ">Forgot Password</h1>
     </span>
   </span>
   <div class = "textBoxCenter group">
@@ -12,7 +12,7 @@
     <span style="display: block; -webkit-animation-duration: 3.5s;" class="fadeInDown animated">
       <%= form_for(:password_reset, url: password_resets_path) do |f| %>
         <%=f.text_field :email, class: 'input inputBlue', required: true %>
-        <%= content_tag :span, nil, :class => 'highlight' %>
+        <%= content_tag :span, nil, :class => 'highlight hideText' %>
         <%= content_tag :span, nil, :class => 'bar' %>
         <%= f.label :email, "Email", :class => 'emailInCenter' %>
       <!-- Adds email to page hash -->
